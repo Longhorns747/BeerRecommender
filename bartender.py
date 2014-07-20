@@ -70,4 +70,4 @@ def recommend_beer():
     return render_template('result.html', result=recommendation)
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=true)
