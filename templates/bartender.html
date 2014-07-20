@@ -17,11 +17,50 @@
     <![endif]-->
   </head>
 <body>
-    <ul id="navigation">
-    {% for ingredient in ingredients %}
-        <li>{{ ingredient }}</li>
-    {% endfor %}
-    </ul>
+	<div class="jumbotron">
+	    <form action="{{ url_for('recommend_beer') }}" method=post role="form" class="form">
+	    	<h1>Bartender</h1>
+
+	    	<h4>Ingredient 1</h4>
+	    	{% for ingredient in ing1 %}
+		    <div class="radio">
+			  <label>
+			    <input type="radio" name="ing1" value="{{ ingredient }}">
+			    {{ ingredient }}
+			  </label>
+			</div>
+			{% endfor %}
+			<h4>Ingredient 2</h4>
+			{% for ingredient in ing2 %}
+		    <div class="radio">
+			  <label>
+			    <input type="radio" name="ing2" value="{{ ingredient }}">
+			    {{ ingredient }}
+			  </label>
+			</div>
+			{% endfor %}
+			<h4>Ingredient 3</h4>
+			{% for ingredient in ing3 %}
+		    <div class="radio">
+			  <label>
+			    <input type="radio" name="ing3" value="{{ ingredient }}">
+			    {{ ingredient }}
+			  </label>
+			</div>
+			{% endfor %}
+			<h4>Ingredient 4</h4>
+			{% for ingredient in ing4 %}
+		    <div class="radio">
+			  <label>
+			    <input type="radio" name="ing4" value="{{ ingredient }}">
+			    {{ ingredient }}
+			  </label>
+			</div>
+			{% endfor %}
+
+			<button type="submit" class="btn btn-default">Submit</button>
+	    </form>
+    </div>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
