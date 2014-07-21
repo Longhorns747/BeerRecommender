@@ -1,5 +1,8 @@
 # Ignore Mac files
 .DS_Store
 
-#Ignore IDE files
+# Ignore IDE files
 .idea/
+
+# Ignore private info
+api_key
