@@ -1,6 +1,6 @@
 from urllib2 import Request, urlopen
 import json
-import random
+from random import randrange
 
 from flask import Flask, render_template, request
 
@@ -17,7 +17,7 @@ def bartenderPage():
 
     ingredients = []
     for _ in xrange(NUM_INGREDIENT_LISTS):
-        ingredients.append([random.choice(ingredient_list) for _ in xrange(NUM_INGREDIENTS)])
+        ingredients.append([ingredient_list.pop(randrange(len(ingredient_list))) for _ in xrange(NUM_INGREDIENTS)])
 
     ingredients = {'ing{0}'.format(index): sublist for index, sublist in enumerate(ingredients, start=1)}
     return render_template('bartender.html', **ingredients)
