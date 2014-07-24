@@ -1,14 +1,14 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
 <html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
-	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Beertender!</title>
 	<!-- Bootstrap -->
 	<link href="{{ url_for('static', filename="css/bootstrap.min.css") }}" rel="stylesheet">
 </head>
-<body>
+
+<body style="padding-bottom: 70px">
 
 <nav class="navbar navbar-default navbar-inverse navbar-fixed-bottom" role="navigation">
 	<div class="container-fluid">
@@ -29,12 +29,9 @@
 			<ul class="nav navbar-nav navbar-right">
 				<li><a href="#">F.A.Q.</a></li>
 				<li><a href="#">About Us</a></li>
-				</li>
 			</ul>
 		</div>
-		<!-- /.navbar-collapse -->
 	</div>
-	<!-- /.container-fluid -->
 </nav>
 
 <div class="jumbotron">
@@ -46,54 +43,60 @@
 	</p>
 </div>
 
-<div class="text-center">
-	<form action="{{ url_for('recommend_beer') }}" method=post role="form" class="form">
-		<div class='section-1'>
-			<h4>Ingredient 1</h4>
-			{% for ingredient in ing1 %}
-				<label>
-					<input type="radio" class='ing1' name="ing1" value="{{ ingredient }}">
-					{{ ingredient }}
-				</label>
-			{% endfor %}
+<div class="row center-block" style="padding-top: 10px;">
+	<div class="col-md-6 col-md-offset-3">
+		<div class="text-center well">
+			<form action="{{ url_for('recommend_beer') }}" method=post class="form">
+				<div class='section-1'>
+					<h4>Ingredient 1</h4>
+					{% for ingredient in ing1 %}
+						<label class="radio-inline">
+							<input type="radio" class='ing1' name="ing1" value="{{ ingredient }}">
+							{{ ingredient }}
+						</label>
+					{% endfor %}
+				</div>
+
+				<div id='section-2' style="padding-top: 10px">
+					<h4>Ingredient 2</h4>
+					{% for ingredient in ing2 %}
+						<label class="radio-inline">
+							<input type="radio" class='ing2' name="ing2" value="{{ ingredient }}">
+							{{ ingredient }}
+						</label>
+					{% endfor %}
+				</div>
+
+				<div id='section-3' style="padding-top: 10px">
+					<h4>Ingredient 3</h4>
+					{% for ingredient in ing3 %}
+						<label class="radio-inline">
+							<input type="radio" class='ing3' name="ing3" value="{{ ingredient }}">
+							{{ ingredient }}
+						</label>
+					{% endfor %}
+				</div>
+
+
+				<div id='section-4' style="padding-top: 10px">
+					<h4>Ingredient 4</h4>
+					{% for ingredient in ing4 %}
+						<label class="radio-inline">
+							<input type="radio" class='ing4' name="ing4" value="{{ ingredient }}">
+							{{ ingredient }}
+						</label>
+					{% endfor %}
+				</div>
+				<br> <!-- TODO: There's gotta be a better way to space the submit button -->
+				<button type="submit" id='section-5' class="btn btn-default btn-lg">
+					<span class="glyphicon glyphicon-glass"></span>
+					Submit
+				</button>
+			</form>
 		</div>
-
-
-		<div id='section-2'>
-			<h4>Ingredient 2</h4>
-			{% for ingredient in ing2 %}
-				<label>
-					<input type="radio" class='ing2' name="ing2" value="{{ ingredient }}">
-					{{ ingredient }}
-				</label>
-			{% endfor %}
-		</div>
-
-		<div id='section-3'>
-			<h4>Ingredient 3</h4>
-			{% for ingredient in ing3 %}
-				<label>
-					<input type="radio" class='ing3' name="ing3" value="{{ ingredient }}">
-					{{ ingredient }}
-				</label>
-			{% endfor %}
-		</div>
-
-
-		<div id='section-4'>
-			<h4>Ingredient 4</h4>
-			{% for ingredient in ing4 %}
-				<label>
-					<input type="radio" class='ing4' name="ing4" value="{{ ingredient }}">
-					{{ ingredient }}
-				</label>
-			{% endfor %}
-		</div>
-		<button type="submit" id='section-5' class="btn btn-default btn-lg"><span
-				class="glyphicon glyphicon-glass"></span> Submit
-		</button>
-	</form>
+	</div>
 </div>
+
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="{{ url_for('static', filename="js/jquery-1.11.1.min.js") }}"></script>
@@ -104,7 +107,7 @@
 <script>
 	//lel js scoping/binding/whatever it's called
 	function generate_handler(i) {
-		return function (event) {
+		return function () {
 			if ($(this).is(':checked')) {
 				$("#section-" + (i + 1)).fadeIn('slow');
 			}
@@ -113,7 +116,7 @@
 
 	//TODO: switch to event delegation pattern
 	$(document).ready(function () {
-		for (i = 1; i <= 4; i++) {
+		for (var i = 1; i <= 4; i++) {
 			$('#section-' + (i + 1)).hide();
 			$(".ing" + i).on("click", generate_handler(i));
 		}
