@@ -13,7 +13,7 @@ app = Flask(__name__)
 # TODO: Probably wanna add some exception handling in general
 @app.route('/')
 def bartenderPage():
-    ingredient_list = open("data/ingredients.csv", 'r').read().split(';')
+    ingredient_list = open("FlaskApplication/data/ingredients.csv", 'r').read().split(';')
 
     ingredients = []
     for _ in xrange(NUM_INGREDIENT_LISTS):

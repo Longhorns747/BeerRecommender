@@ -6,3 +6,5 @@
 
 # Ignore private info
 api_key
+
+venv/*
