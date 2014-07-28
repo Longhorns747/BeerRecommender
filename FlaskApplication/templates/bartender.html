@@ -9,31 +9,6 @@
 
 <body style="padding-bottom: 70px">
 
-<!-- TODO: Template-ize this shit -->
-<nav class="navbar navbar-default navbar-inverse navbar-fixed-bottom" role="navigation">
-	<div class="container-fluid">
-		<!-- Brand and toggle get grouped for better mobile display -->
-		<div class="navbar-header">
-			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
-				<span class="sr-only">Toggle navigation</span>
-				<!-- Hamburger -->
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-			</button>
-			<a class="navbar-brand" href="/">BeerRecomender</a>
-		</div>
-
-		<!-- Collect the nav links, forms, and other content for toggling -->
-		<div class="collapse navbar-collapse" id="navbar">
-			<ul class="nav navbar-nav navbar-right">
-				<li><a href="#">F.A.Q.</a></li>
-				<li><a href="#">About Us</a></li>
-			</ul>
-		</div>
-	</div>
-</nav>
-
 <div class="jumbotron">
 	<h1>Welcome to BeerRecommender!</h1>
 
@@ -97,31 +72,15 @@
 	</div>
 </div>
 
+{% include "navbar.html" %}
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="{{ url_for('static', filename="js/jquery-1.11.1.min.js") }}"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="{{ url_for('static', filename="js/bootstrap.min.js") }}"></script>
+<!-- Include Luis' hacky shit -->
+<script src="{{ url_for('static', filename="js/luisneedstolearnmorejs.js") }}"></script>
 
-<!--TODO: move this to separate file-->
-<script>
-	//lel js scoping/binding/whatever it's called
-	function generate_handler(i) {
-		return function () {
-			if ($(this).is(':checked')) {
-				$("#section-" + (i + 1)).fadeIn('slow');
-			}
-		}
-	}
-
-	//TODO: switch to event delegation pattern
-	$(document).ready(function () {
-		for (var i = 1; i <= 4; i++) {
-			$('#section-' + (i + 1)).hide();
-			$(".ing" + i).on("click", generate_handler(i));
-		}
-	});
-</script>
 
 
 </body>
