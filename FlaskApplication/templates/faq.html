@@ -6,31 +6,17 @@
 	<!-- Bootstrap -->
 	<link href="{{ url_for('static', filename="css/bootstrap.min.css") }}" rel="stylesheet">
 </head>
-
-<body style="padding-bottom: 70px">
+<body>
 
 <div class="jumbotron">
-	<h1>Your recommendation is ready!</h1>
+	<h1>F.A.Q.</h1>
 
 	<p>
-		After some incredibly complex computations, we've found your next beer!
+		Have questions? Too bad, we probably won't answer them.
 	</p>
 </div>
 
-
-<div class="row center-block" style="padding-top: 40px;">
-	<div class="col-md-6 col-md-offset-3">
-		<div class="text-center well">
-			{% if result %}
-				<p class='lead'>We think your next beer should be a: </p> <h1> {{ result }} </h1>
-			{% else %}
-				<h1>Don't be an idiot, go back and select some ingredients.</h1>
-			{% endif %}
-		</div>
-	</div>
-</div>
-
-{% include "navbar.html" %}
+{% include 'navbar.html' %}
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="{{ url_for('static', filename="js/jquery-1.11.1.min.js") }}"></script>

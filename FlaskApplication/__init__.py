@@ -13,12 +13,15 @@ app = Flask(__name__)
 # TODO: Probably wanna add some exception handling in general
 @app.route('/')
 def bartenderPage():
-    ingredient_list = open("FlaskApplication/data/ingredients.csv", 'r').read().split(';')
+    with open("FlaskApplication/data/ingredients.csv", 'r') as f:
+        ingredient_list = f.read().split(';')
 
     ingredients = []
+    # Generate the ingredients list to be displayed
     for _ in xrange(NUM_INGREDIENT_LISTS):
         ingredients.append([ingredient_list.pop(randrange(len(ingredient_list))) for _ in xrange(NUM_INGREDIENTS)])
 
+    # Magic to generate kwarg dict
     ingredients = {'ing{0}'.format(index): sublist for index, sublist in enumerate(ingredients, start=1)}
     return render_template('bartender.html', **ingredients)
 
@@ -26,6 +29,14 @@ def bartenderPage():
 @app.route('/recommend', methods=['POST'])
 def recommend_beer():
     return render_template('result.html', result=_parse_response(_send_ingredients(request)))
+
+@app.route('/faq')
+def faq():
+    return render_template('faq.html')
+
+@app.route('/about')
+def about():
+    return render_template('about.html')
 
 
 def _generate_data(request):
