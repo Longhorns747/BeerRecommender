@@ -27,6 +27,9 @@ def bartenderPage():
 def recommend_beer():
     return render_template('result.html', result=_parse_response(_send_ingredients(request)))
 
+@app.route('/faq')
+def faq():
+    return render_template('faq.html')
 
 def _generate_data(request):
     return str.encode(json.dumps({
