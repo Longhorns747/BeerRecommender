@@ -16,9 +16,11 @@ def bartenderPage():
     ingredient_list = open("FlaskApplication/data/ingredients.csv", 'r').read().split(';')
 
     ingredients = []
+    # Generate the ingredients list to be displayed
     for _ in xrange(NUM_INGREDIENT_LISTS):
         ingredients.append([ingredient_list.pop(randrange(len(ingredient_list))) for _ in xrange(NUM_INGREDIENTS)])
 
+    # Magic to generate kwarg dict
     ingredients = {'ing{0}'.format(index): sublist for index, sublist in enumerate(ingredients, start=1)}
     return render_template('bartender.html', **ingredients)
 
