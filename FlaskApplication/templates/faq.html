@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Beertender!</title>
 	<!-- Bootstrap -->
 	<link href="{{ url_for('static', filename="css/bootstrap.min.css") }}" rel="stylesheet">
 </head>
-<body>
+<body style="padding-bottom: 70px">
 
 <div class="jumbotron">
 	<h1>F.A.Q.</h1>
@@ -16,7 +17,64 @@
 	</p>
 </div>
 
+<div class="container">
+	<div class="row">
+		<div class="col-md-9">
+
+			<h2 id="q1">Who are you guys?</h2>
+
+			<p>
+				We're a trio of CS nerds from GT. &#8531; of us have currently graduated and are grinding out a living
+				in the private sector. The other &#8532; are hiding from the horrors of the real world in the
+				warm embrace of academia.
+			</p>
+
+			<hr>
+
+			<h2 id="q2">Why'd you make this?</h2>
+
+			<p>
+				Beer and ML. Why not?
+			</p>
+
+			<hr>
+
+			<h2 id="q3">What technologies did you use?</h2>
+
+			<p>
+				Magic. And a little bit of unicorn blood.
+			</p>
+
+			<p>
+				All jokes aside, we used:
+			</p>
+			<ul>
+				<li>Flask (web microframework)</li>
+				<li>Jinja (templating)</li>
+				<li>Azure (hosting and ML)</li>
+				<li>Bootstrap + jQuery (shininess)</li>
+
+			</ul>
+
+			<hr>
+
+			<h2 id="q4">Why doesn't Stephen have a girl in his picture?</h2>
+
+			<p>
+				Short answer: we think he's gay.
+			</p>
+
+			<p>
+				Long answer: he's definitely gay.
+			</p>
+
+		</div>
+	</div>
+</div>
+
+
 {% include 'navbar.html' %}
+
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="{{ url_for('static', filename="js/jquery-1.11.1.min.js") }}"></script>
