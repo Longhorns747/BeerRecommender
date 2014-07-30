@@ -9,23 +9,27 @@
 
 <body style="padding-bottom: 70px">
 
-<div class="jumbotron">
-	<h1>Your recommendation is ready!</h1>
+<div class='container-fluid'>
+	<div class="jumbotron" style="padding: 0.5em 0.6em;">
+		<div class='text-center'>
+			<h1>Your recommendation is ready!</h1>
 
-	<p>
-		After some incredibly complex computations, we've found your next beer!
-	</p>
-</div>
+			<p>
+				After some incredibly complex computations, we've found your next beer!
+			</p>
+		</div>
+	</div>
 
 
-<div class="row center-block" style="padding-top: 40px;">
-	<div class="col-md-6 col-md-offset-3">
-		<div class="text-center well">
-			{% if result %}
-				<p class='lead'>We think your next beer should be a: </p> <h1> {{ result }} </h1>
-			{% else %}
-				<h1>Don't be an idiot, go back and select some ingredients.</h1>
-			{% endif %}
+	<div class="row center-block" style="padding-top: 30px;">
+		<div class="col-md-6 col-md-offset-3">
+			<div class="text-center well">
+				{% if result %}
+					<p class='lead'>We think your next beer should be a: </p> <h1> {{ result }} </h1>
+				{% else %}
+					<h1>Don't be an idiot, go back and select some ingredients.</h1>
+				{% endif %}
+			</div>
 		</div>
 	</div>
 </div>

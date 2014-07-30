@@ -9,56 +9,78 @@
 <body style="padding-bottom: 70px">
 
 
-<div class="jumbotron">
-	<h1>About Us</h1>
-
-	<p>
-		Curious about who created this majestic piece of software? Look no further!
-	</p>
-</div>
-
-<!-- Luis -->
-<div class="media">
-	<a class="pull-left" href="#">
-		<img class="media-object" width="64" height="64" src="{{ url_for("static", filename="images/luis.jpg") }}"
-			 alt="da pythonista">
-	</a>
-
-	<div class="media-body">
-		<h4 class="media-heading">Luis Pérez</h4>
-		Luis is the team's Python guru. For the time being, he's also acting as a designer&mdash;and as you can see,
-		he's not particularly good at it.
-		<br>
-		Taken, sorry.
-		<hr>
+<div class='container-fluid'>
+	<div class="jumbotron" style="padding: 0.5em 0.6em;">
+		<div class='text-center'>
+			<h1>About Us</h1>
+		</div>
+		<p>
+			Curious about who created this majestic piece of software? Look no further!
+		</p>
 	</div>
-</div>
+	<div class="col-md-6 col-md-offset-3">
+		<div class='list-group' style="padding-top: 70px;">
+			<!-- Luis -->
+			<div class="list-group-item">
+				<div class="media">
+					<a class="pull-left" href="#">
+						<img class="media-object" width="64" height="64"
+							 src="{{ url_for("static", filename="images/luis.jpg") }}"
+							 alt="da pythonista">
+					</a>
 
-<!-- Ethan -->
-<div class="media">
-	<a class="pull-left" href="#">
-		<img class="media-object" width="64" height="64" src="{{ url_for("static", filename="images/ethan.jpg") }}"
-			 alt="da founder">
-	</a>
+					<div class="media-body">
+						<h4 class="media-heading">Luis Pérez</h4>
 
-	<div class="media-body">
-		<h4 class="media-heading">Ethan Shernan</h4>
-		Ethan is the brains behind this project. He's currently in charge of the ML backend for the site.
-	<hr>
-	</div>
-</div>
+						<p class="list-group-item-text">
+							Luis is the team's Python guru. For the time being, he's also acting as a designer&mdash;and
+							as you can see, he's not particularly good at it.
+							<br><br>
+							Taken, sorry!
+						</p>
+					</div>
+				</div>
+			</div>
 
-<!-- Stephen -->
-<div class="media">
-	<a class="pull-left" href="#">
-		<img class="media-object" width="64" height="64" src="{{ url_for("static", filename="images/stephen.jpg") }}"
-			 alt="da guy">
-	</a>
+			<!-- Ethan -->
+			<div class="list-group-item">
+				<div class="media">
+					<a class="pull-left" href="#">
+						<img class="media-object" width="64" height="64"
+							 src="{{ url_for("static", filename="images/ethan.jpg") }}"
+							 alt="da founder">
+					</a>
 
-	<div class="media-body">
-		<h4 class="media-heading">Stephen Csukas</h4>
-		Stephen does stuff. Sometimes.
-		<hr>
+					<div class="media-body">
+						<h4 class="media-heading">Ethan Shernan</h4>
+
+						<p class="list-group-item-text">
+							Ethan is the brains behind this project. He's currently in charge of the ML backend for the
+							site.
+						</p>
+					</div>
+				</div>
+			</div>
+
+			<!-- Stephen -->
+			<div class="list-group-item">
+				<div class="media">
+					<a class="pull-left" href="#">
+						<img class="media-object" width="64" height="64"
+							 src="{{ url_for("static", filename="images/stephen.jpg") }}"
+							 alt="da guy">
+					</a>
+
+					<div class="media-body">
+						<h4 class="media-heading">Stephen Csukas</h4>
+
+						<p class="list-group-item-text">
+							Stephen does stuff. Sometimes.
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 </div>
 
